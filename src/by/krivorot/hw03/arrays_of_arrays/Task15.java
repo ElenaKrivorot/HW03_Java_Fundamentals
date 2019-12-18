@@ -16,11 +16,11 @@ public class Task15 {
 		int n = 6;
 		int[][] mas = new int[n][n];
 
-		init(mas, 20);
+		init(mas);
 		printMas(mas);
 	}
 	
-	public static void init(int[][] mas, int limit) {
+	public static void init(int[][] mas) {
 		int i;
 		int j;
 

@@ -1,16 +1,15 @@
 package by.krivorot.hw03.arrays_of_arrays;
 
-public class Task12 {
+public class Task25 {
 	/*
-	 * Получить квадратную матрицу порядка n:
-	 *  0 0 0 ... 0
-	 *  0 1 0 ... 0
-	 *  0 0 2 ... 0 
-	 *  . . . ... . 
-	 *  . . . ... . 
-	 *  . . . ... . 
-	 *  0 0 0 ... n-1
+	 * Получить квадратную матрицу порядка n: 
+	 *           1         2 ...   n-1   n 
+	 *         n+1       n+2 ...  2n-1  2n 
+	 *        2n+1      2n+2 ...  3n-1  3n
+	 *           .         . ...     .   . 
+	 *    (n-1)n+1  (n-1)n+2 ... n^2-1 n^2
 	 */
+
 	public static void main(String[] args) {
 		int n = 6;
 		int[][] mas = new int[n][n];
@@ -25,13 +24,10 @@ public class Task12 {
 
 		for (i = 0; i < mas.length; i++) {
 			for (j = 0; j < mas[i].length; j++) {
-				if (i == j) {
-					mas[i][j] = i;
-				} else {
-					mas[i][j] = 0;
-				}
+				mas[i][j] = mas.length * i + (j + 1);
 			}
 		}
+
 	}
 
 	public static void printMas(int[][] mas) {
@@ -40,7 +36,7 @@ public class Task12 {
 
 		for (i = 0; i < mas.length; i++) {
 			for (j = 0; j < mas[i].length; j++) {
-				System.out.printf("%3d", mas[i][j]);
+				System.out.printf("%4d", mas[i][j]);
 			}
 			System.out.println();
 		}

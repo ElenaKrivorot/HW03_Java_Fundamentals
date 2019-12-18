@@ -1,15 +1,14 @@
 package by.krivorot.hw03.arrays_of_arrays;
 
-public class Task19 {
+public class Task21 {
 	/*
 	 * Сформировать квадратную матрицу порядка n по заданному образцу(n - четное):
-	 *  1 1 1 ... 1 1 1 
-	 *  0 1 1 ... 1 1 0
-	 *  0 0 1 ... 1 0 0
-	 *  . . . ... . . .
-	 *  0 0 1 ... 1 0 0
-	 *  0 1 1 ... 1 1 0
-	 *  1 1 1 ... 1 1 1 
+	 *    n 0 0 ...   0 0 
+	 *  n-1 n 0 ...   0 0	 
+	 *    . . . ... . . .
+	 *    3 4 5 ...   0 0
+	 *    2 3 4 ...   n 0
+	 *    1 2 3 ... n-1 n  
 	 */
 
 	public static void main(String[] args) {
@@ -18,24 +17,22 @@ public class Task19 {
 
 		init(mas);
 		printMas(mas);
+
 	}
 
 	public static void init(int[][] mas) {
 		int i;
 		int j;
+		int tmp;
 
-		for (i = 0; i < mas.length / 2; i++) {
-			for (j = 0; j < mas[i].length / 2; j++) {
-				if (j < i) {
-					mas[i][j] = 0;
-					mas[i][mas.length - 1 - j] = 0;
-					mas[mas.length - 1 - i][j] = 0;
-					mas[mas.length - 1 - i][mas.length - 1 - j] = 0;
+		for (i = 0; i < mas.length; i++) {
+			tmp = i;
+			for (j = 0; j < mas[i].length; j++) {
+				if (j <= i) {
+					mas[i][j] = mas[i].length - tmp;
+					tmp--;
 				} else {
-					mas[i][j] = 1;
-					mas[i][mas.length - 1 - j] = 1;
-					mas[mas.length - 1 - i][j] = 1;
-					mas[mas.length - 1 - i][mas.length - 1 - j] = 1;
+					mas[i][j] = 0;
 				}
 			}
 		}
@@ -53,5 +50,4 @@ public class Task19 {
 			System.out.println();
 		}
 	}
-
 }
