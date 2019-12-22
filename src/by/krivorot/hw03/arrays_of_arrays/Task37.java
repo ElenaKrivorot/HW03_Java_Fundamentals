@@ -56,7 +56,7 @@ public class Task37 {
 	public static void initIndexes(int[] mas) {
 		int i;
 
-		for (i = 1; i < mas.length; i++) {
+		for (i = 0; i < mas.length; i++) {
 			mas[i] = -1;
 		}
 	}
